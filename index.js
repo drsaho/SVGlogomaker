@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const colors = require('colors');
+const fs = requrie('fs')
 const { Circle, Triangle, Square } = require('./lib/shapes');
 
 inquirer
@@ -11,15 +12,23 @@ inquirer
       
     },
     {
-      type: 'password',
-      message: 'What is your password?',
-      name: 'password',
+      type: 'input',
+      message: 'Enter Color:Enter a color keyword (OR a hexadecimal number):',
+      name: 'color',
     },
     {
-      type: 'password',
-      message: 'Re-enter password to confirm:',
-      name: 'confirm',
+      type: 'input',
+      message: 'Choose shape color: enter a color keyword (OR a hexadecimal number)',
+      name: 'shape',
     },
+
+    {
+      type: "list",
+        name: "pixel-image",
+        message: "Choose which Pixel Image you would like?",
+        choices: ["Triangle", "Circle", "Square"],
+    },
+
   ])
   .then((response) =>
     response.confirm === response.password
