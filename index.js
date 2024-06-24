@@ -53,15 +53,14 @@ async function userPrompt() {
 
     shape.setColor(answers.shapeColor);
 
-    const svgContent = `
-      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    const svgContent = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
         ${shape.render()}
         <text x="150" y="175" font-size="40" text-anchor="middle" fill="${answers.textColor}">${answers.text}</text>
       </svg>
     `;
 
     fs.writeFileSync('examples/logo.svg', svgContent.trim());
-    console.log('Generated logo.svg');
+    console.log('created logo.svg');
   } catch (error) {
     console.error('Error:', error);
   }
